@@ -30,7 +30,7 @@ GoodNutritionBot is a Telegram bot that helps you track your nutrition and fitne
 1. Clone the repository:
 
    ```
-   git clone https://github.com/AntonZimyanin/
+   git clone https://github.com/AntonZimyanin/GoodNutritionBot.git
    ```
 
 2. Navigate to the project directory:
