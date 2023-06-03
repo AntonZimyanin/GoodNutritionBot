@@ -36,7 +36,7 @@ GoodNutritionBot is a Telegram bot that helps you track your nutrition and fitne
 2. Navigate to the project directory:
 
    ```
-   cd todo
+   cd GoodNutritionBot
    ```
 
 3. Install the required dependencies:
