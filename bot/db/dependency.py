@@ -9,6 +9,13 @@ from aiosqlite import connect
 
 
 def connect_db(db_url):
+    """
+    soliD — Dependency Inversion
+    Top level modules should not depend
+    on lower level modules,
+    so on I am taking db path as parameter
+    """
+
     def decorator(func):
         wraps(func)
 
