@@ -23,6 +23,7 @@ GoodNutritionBot is a Telegram bot that helps you track your nutrition and fitne
 - Python 3.8 or higher
 - aiogram 3.0 or higher
 - aioslite
+- yoyo-migrations
 
 
 ## Getting started
@@ -30,13 +31,13 @@ GoodNutritionBot is a Telegram bot that helps you track your nutrition and fitne
 1. Clone the repository:
 
    ```
-   git clone https://github.com/AntonZimyanin/
+   git clone https://github.com/AntonZimyanin/GoodNutritionBot.git
    ```
 
 2. Navigate to the project directory:
 
    ```
-   cd todo
+   cd GoodNutritionBot
    ```
 
 3. Install the required dependencies:
@@ -48,6 +49,13 @@ GoodNutritionBot is a Telegram bot that helps you track your nutrition and fitne
 
 
 5. Add your token to .env file
+
+
+6. Apply migrations to a SQLite database at location /GoodNutritionBot/database.db:
+
+   ```
+   yoyo apply --database sqlite:////GoodNutritionBot/database.db ./migrations
+   ```
 
 
 

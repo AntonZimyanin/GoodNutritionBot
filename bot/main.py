@@ -8,7 +8,6 @@ from aiogram.fsm.storage.redis import RedisStorage
 
 from bot.config_reader import config
 from bot.config_reader import FSMModeEnum
-from bot.db.crud import create_all_table
 from bot.db.crud import delete_remider
 from bot.db.crud import get_le_current_time
 from bot.handlers import commands
@@ -19,8 +18,6 @@ from bot.set_commands import set_commands
 
 
 async def run_bot():
-    await create_all_table()
-
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",

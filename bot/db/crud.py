@@ -15,40 +15,6 @@ from bot.db.pydantic_models import User
 #############################
 
 
-@connect_db(db_url=config.db_url)
-async def create_all_table(db: Connection) -> None:
-    await db.execute(
-        """CREATE TABLE IF NOT EXISTS users (
-                        chat_id TEXT PRIMARY KEY,
-                        weight INTEGER,
-                        height INTEGER,
-                        age INTEGER,
-                        gender TEXT,
-                        activity_level INTEGER) """
-    )
-    await db.execute(
-        """CREATE TABLE IF NOT EXISTS reminders (
-                        id INTEGER PRIMARY KEY,
-                        user_id TEXT,
-                        description TEXT NOT NULL,
-                        response_time DATETIME NOT NULL,
-                        FOREIGN KEY (user_id) REFERENCES users(id)
-                        )"""
-    )
-    await db.execute(
-        f"""CREATE TABLE IF NOT EXISTS meals (
-                        id INTEGER PRIMARY KEY,
-                        user_id TEXT,
-                        name TEXT NOT NULL,
-                        calories INTEGER NOT NULL,
-                        add_time DATETIME
-                        DEFAULT '{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}',
-                        FOREIGN KEY (user_id) REFERENCES users(id)
-                        )"""
-    )
-    await db.commit()
-
-
 ############################
 #   BLOCK FOR ADDING DATA
 ###########################
@@ -129,28 +95,41 @@ async def delete_remider(db: Connection, user_id: str):
     await db.commit()
 
 
+# Note:
+# create keyboard with all meal
+# where somebody wanted delete
+# meal and push on button with
+# meal -> calback data in button
+# it's meal_id
+# in the meantime, we will
+# delete by name and user-id
 @connect_db(db_url=config.db_url)
-async def delete_meal(db: Connection, meal_id: int):
+async def delete_meal(db: Connection, meal_name, user_id):
     await db.execute(
         """DELETE
                     FROM meals
-                    WHERE id = ?""",
-        (meal_id,),
+                    WHERE user_id = ?
+                    AND
+                    name = ?
+                    """,
+        (user_id, meal_name),
     )
     await db.commit()
 
 
-# @connect_db(db_url=config.db_url)
-# async def update_params(db: Connection, *kwargs):
-#     await db.execute(
-#         f'''UPDATE users
-#         SET
-#         WHERE chat_id = ?
-#         '''
-#         ()
-
-#     )
-#     await db.commit()
+@connect_db(db_url=config.db_url)
+async def update_params(db: Connection, **kwargs):
+    chat_id = kwargs.get("chat_id")
+    for key, val in kwargs.items():
+        await db.execute(
+            f"""UPDATE users
+                    SET
+                    {key} = ?
+                WHERE chat_id = ?
+                """,
+            (val, chat_id),
+        )
+    await db.commit()
 
 
 ###########################################

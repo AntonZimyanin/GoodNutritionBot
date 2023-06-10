@@ -1,5 +1,7 @@
 *.db
 html/
+migrations/*
+!migrations/.gitkeep
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

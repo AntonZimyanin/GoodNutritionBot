@@ -12,6 +12,7 @@ aiosqlite = "^0.19.0"
 aiogram = "3.0.0b7"
 pydantic = {extras = ["dotenv"], version = "^1.10.8"}
 pre-commit = "^3.3.2"
+yoyo-migrations = "^8.2.0"
 
 
 [build-system]
