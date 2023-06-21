@@ -95,6 +95,7 @@ If you would like to contribute to GoodNutritionBot, you can:
 - [Poetry](https://python-poetry.org/) - Poetry is a tool for dependency management and packaging in Python
 - [HTML](https://www.w3.org/html/) - Hypertext Markup Language for creating web pages
 - [CSS](https://www.w3.org/Style/CSS/Overview.en.html) - Cascading Style Sheets for styling web pages
+- [Yoyo database migrations](https://ollycope.com/software/yoyo/latest/) - Yoyo is a database schema migration tool
 
 ## License
 
