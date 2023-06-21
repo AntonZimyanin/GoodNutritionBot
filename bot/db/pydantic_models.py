@@ -3,8 +3,7 @@ from datetime import datetime
 from pydantic import BaseModel
 
 
-class User(BaseModel):
-    chat_id: str
+class BaseUser(BaseModel):
     weight: int
     height: int
     age: int
@@ -12,7 +11,16 @@ class User(BaseModel):
     activity_level: int
 
 
+class UserIn(BaseUser):
+    pass
+
+
+class UserDB(BaseUser):
+    chat_id: str
+
+
 class Meal(BaseModel):
+    id: int
     user_id: str
     name: str
     calories: int
@@ -20,6 +28,7 @@ class Meal(BaseModel):
 
 
 class Reminder(BaseModel):
+    id: int
     user_id: str
     description: str
     response_time: datetime
