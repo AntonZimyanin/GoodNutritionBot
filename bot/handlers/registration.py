@@ -5,7 +5,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
 from bot.db.crud import add_user
-from bot.db.pydantic_models import User
+from bot.db.shemas import User
 from bot.patterns import ACTIVITY_LEVEL_LIST
 from bot.patterns import DIGIT_MATCH_PATTERN
 from bot.patterns import GENDER_LIST

@@ -5,7 +5,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
 from bot.db.crud import add_meal
-from bot.db.pydantic_models import Meal
+from bot.db.shemas import Meal
 from bot.patterns import LETTER_MATCH_PATTERN
 from bot.state import AddMeal
 

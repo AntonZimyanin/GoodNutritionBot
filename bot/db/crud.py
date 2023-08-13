@@ -5,9 +5,9 @@ from aiosqlite import Row
 
 from bot.config_reader import config
 from bot.db.dependency import connect_db
-from bot.db.pydantic_models import Meal
-from bot.db.pydantic_models import Reminder
-from bot.db.pydantic_models import User
+from bot.db.shemas import Meal
+from bot.db.shemas import Reminder
+from bot.db.shemas import User
 
 
 ##############################
@@ -18,6 +18,12 @@ from bot.db.pydantic_models import User
 ############################
 #   BLOCK FOR ADDING DATA
 ###########################
+
+
+"""
+db - обязательный аргумент который возращается
+в декораторе
+"""
 
 
 @connect_db(db_url=config.db_url)
@@ -157,6 +163,7 @@ async def select_meals(db: Connection, user_id: str) -> Row | None:
         return meals
 
 
+@property
 @connect_db(db_url=config.db_url)
 async def is_user(db: Connection, user_id: str) -> True | False:
     """
@@ -174,8 +181,8 @@ async def is_user(db: Connection, user_id: str) -> True | False:
         user = await cursor.fetchone()
 
     if user is not None:
-        return True
-    return False
+        return await True
+    return await False
 
 
 @connect_db(db_url=config.db_url)

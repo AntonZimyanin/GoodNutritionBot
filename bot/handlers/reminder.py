@@ -6,7 +6,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
 from bot.db.crud import add_reminder
-from bot.db.pydantic_models import Reminder
+from bot.db.shemas import Reminder
 from bot.state import NewReminder
 
 

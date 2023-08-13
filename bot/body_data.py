@@ -12,6 +12,22 @@ activity_factors = {
     5: 1.9,
 }
 
+BMR_MALE = {
+    "basal_metabolic": 66.5,
+    "adjust_weight": 13.75,
+    "adjust_height": 5.003,
+    "adjust_age": 6.755,
+}
+
+
+BMR_FEMALE = {
+    "basal_metabolic": 655.1,
+    "adjust_weight": 9.563,
+    "adjust_height": 1.850,
+    "adjust_age": 4.676,
+}
+
+
 # diets = {
 #     "Keto Diet":
 #  "A high-fat, low-carb diet that forces your body to burn fat for energy.",
